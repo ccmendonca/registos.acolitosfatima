@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>registosusuarios</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <hr/>
+            <center>
+                <h1><b>Alterando Usuário</b></h1>
+            </center>
+             <p:toolbar>
+                <p:toolbarGroup>
+                    <p:commandButton value="HOME" action="index.xhtml"/>
+                    <h:outputLabel value="                    "/>
+                    <p:commandButton value="Registar Novo Usuário" action="form_usuario.xhtml"/>
+                </p:toolbarGroup>
+            </p:toolbar>
+            <center>
+                <h:panelGrid columns="2">
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Código"/>
+                            <h:inputText value="#{usuarioBean.usuario.codigo}"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Usuário"/>
+                            <h:inputText value="#{usuarioBean.usuario.nome}"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Email"/>
+                            <h:inputText value="#{usuarioBean.usuario.email}"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Senha"/>
+                            <h:inputText value="#{usuarioBean.usuario.senha}"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                </h:panelGrid>
+
+                <h:panelGrid columns="2">
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Género"/>
+                            <h:selectOneRadio value="#{usuarioBean.usuario.genero}">
+                                <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                                <f:selectItem itemValue="F" itemLabel="Feminino"/>
+                            </h:selectOneRadio>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h:panelGrid columns="1">
+                            <h:outputText value="Endereço"/>
+                            <h:inputText value="#{usuarioBean.usuario.endereco}"/>
+                        </h:panelGrid>
+                    </h:panelGroup>
+                </h:panelGrid>
+            </center>
+        </h:form>
+        <h:form>
+            <center>
+                <p:commandButton value="Actualizar/Usuário" action="#{usuarioBean.editar()}"/>
+            </center>
+        </h:form>
+    </h:body>
+</html>

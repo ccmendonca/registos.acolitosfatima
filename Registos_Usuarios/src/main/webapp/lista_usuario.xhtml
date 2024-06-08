@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>registosusuarios</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <hr/>
+            <center>
+                <h1><b>Detalhes Usuários</b></h1>
+            </center>
+            <p:toolbar>
+                <p:toolbarGroup>
+                    <p:commandButton value="HOME" action="index.xhtml"/>
+                    <h:outputLabel value="                    "/>
+                    <p:commandButton value="Registar Novo Usuário" action="form_usuario.xhtml"/>
+                </p:toolbarGroup>
+            </p:toolbar>
+        </h:form> 
+
+        <h:form>
+            <p:dataTable value="#{usuarioBean.usuarios}" var="use">
+                <p:column headerText="Código" sortBy="#{use.codigo}">
+                    <h:outputText value="#{use.codigo}"></h:outputText>    
+                </p:column>
+                <p:column headerText="Usuário" sortBy="#{use.nome}">
+                    <h:outputText value="#{use.nome}"></h:outputText>    
+                </p:column>
+                <p:column headerText="Email" sortBy="#{use.email}">
+                    <h:outputText value="#{use.email}"></h:outputText>    
+                </p:column>
+                <p:column headerText="Palavra-Passe" sortBy="#{use.senha}">
+                    <h:outputText value="#{use.senha}"></h:outputText>    
+                </p:column>
+                <p:column headerText="Género" sortBy="#{use.genero}">
+                    <h:outputText value="#{use.genero}"></h:outputText>    
+                </p:column>
+                <p:column headerText="Localização" sortBy="#{use.endereco}">
+                    <h:outputText value="#{use.endereco}"></h:outputText>    
+                </p:column>
+
+                <p:column headerText="Operações">
+                    <p:commandButton value="Eliminar Usuário" action="#{usuarioBean.eliminar()}">
+                        <f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{user}"/>
+                    </p:commandButton>
+                </p:column>
+                <h:outputLabel value=" || "/>
+                <p:column headerText="Operações">
+                    <p:commandButton value="Alterar Usuário" action="editar_usuario.xhtml">
+                        <f:setPropertyActionListener target="#{usuarioBean.usuario}" value="#{user}"/>
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+
+        </h:form>
+    </h:body>
+</html>
